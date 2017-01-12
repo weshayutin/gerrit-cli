@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo rm -rf build/ AUTHORS  ChangeLog  gerrit_cli.egg-info/ .tox
+sudo find . -name '*.pyc' -delete

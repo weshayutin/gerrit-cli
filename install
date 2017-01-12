@@ -1,0 +1,7 @@
+#!/bin/bash
+
+./clean
+sudo pip install -r requirements.txt
+sudo python setup.py install
+mkdir -p ~/.gerrit-cli
+cp -n gerrit_cli/gerrit-cli.json ~/.gerrit-cli/

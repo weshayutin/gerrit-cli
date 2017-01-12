@@ -1,0 +1,4 @@
+hacking<0.13,>=0.12.0 # Apache-2.0
+astroid<1.4.0 # LGPLv2.1 # breaks pylint 1.4.4
+pylint==1.4.5 # GPLv2
+mock>=2.0 # BSD

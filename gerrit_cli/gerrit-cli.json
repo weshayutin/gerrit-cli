@@ -1,0 +1,32 @@
+{
+    # global options
+    "host": "review.openstack.org",
+    "port": 29418,
+
+    # "dry-run": true,
+
+    # user defined queries
+    "queries": {
+        # each query is necessarily a list, even if it is a single string
+        "trove-filter": ["(project:openstack/trove-specs OR project:openstack/trove OR project:openstack/trove-dashboard OR project:openstack/python-troveclient OR project:openstack/trove-integration)"],
+
+        # the simple filter uses the trove-filter and appends status:open and is therefore a list
+
+        "simple": ["trove-filter", "status:open"],
+
+        "review-list": ["trove-filter", "status:open", "NOT label:Code-Review>=-2,self"],
+
+        "commitids": ["simple"],
+
+        "older-than-two-weeks": ["simple", "age:2w"]
+    },
+
+    # user defined results
+    "results": {
+        # each result is necessarily a list, even if it is a single column
+        "default": ["number:r", "project:l", "owner:l", "subject:l:80", "state", "age:r"],
+        "simple": ["number:r", "project:l", "owner:l", "subject:l:80", "state", "age:r"],
+        "commitids": [ "number:r", "subject:l:60", "owner:l", "commitid:l", "patchset:r" ],
+        "review-list": [ "number:r", "project:l", "branch:c", "subject:l:80", "owner:l", "state", "age:r" ]
+    }
+}
