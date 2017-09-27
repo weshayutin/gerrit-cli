@@ -100,6 +100,8 @@ def _format_state(cps):
             _workflow[int(approval.get('value')) + 1] += 1
         elif approval.get('type') == 'Verified':
             _verified[int(approval.get('value')) + 2] += 1
+        elif approval.get('type') == 'Rollcall-Vote':
+            pass
         else:
             raise Exception("Unknown approval type %s" % approval.get('type'))
 
