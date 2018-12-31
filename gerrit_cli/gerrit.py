@@ -36,7 +36,6 @@ def parse_arguments(argv):
     # top level arguments
 
     parser.add_argument('--host', action='store',
-                        default='review.openstack.org',
                         help='The gerrit host. Default: review.openstack.org')
     parser.add_argument('--port', action='store',
                         default=29418,
@@ -177,10 +176,12 @@ def main():
         print('arguments are ' + args)
 
     config = load_configuration(args.config_file)
+    #print(config['host'])
 
     if args.dry_run:
         config['dry-run'] = True
 
+    #print("wes args " + str(args))
     if args.host:
         config['host'] = args.host
 

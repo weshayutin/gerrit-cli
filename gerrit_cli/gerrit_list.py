@@ -26,6 +26,7 @@ from gerrit_ssh import GerritSSH
 def _generate_list(args, config):
     query = construct_query(args.query, config)
     show = construct_show(args.show, config)
+    print("ls config " + str(config))
 
     session = GerritSSH(config)
     out, err = session.query(query, current_patch_set=True)
